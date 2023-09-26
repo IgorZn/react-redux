@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import {Button, Stack, Container, Row, Col} from 'react-bootstrap';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch()
+    const cash = useSelector(state => state.cash)
+
+    const addCash = () => {
+        dispatch({type: "ADD_CASH", payload: 5})
+    }
+
+    const getCash = () => {
+        dispatch({type: "GET_CASH", payload: 5})
+    }
+
+    return (
+        <Container fluid>
+            <Row>
+                <Col className="justify-content-center">
+                    <div className="fs-4">{cash}</div>
+                    <Button onClick={() => addCash()} as="a" variant="primary">
+                        Add Cash
+                    </Button>{' '}
+                    <Button onClick={() => getCash()} as="a" variant="success">
+                        Get Cash
+                    </Button>{' '}
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
 export default App;
