@@ -1,10 +1,10 @@
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
-import {Button, Stack, Container, Row, Col} from 'react-bootstrap';
+import {Button, Container, Row, Col} from 'react-bootstrap';
 
 function App() {
     const dispatch = useDispatch()
-    const cash = useSelector(state => state.cash)
+    const cash = useSelector(state => state.cash.cash)
 
     const addCash = () => {
         dispatch({type: "ADD_CASH", payload: 5})

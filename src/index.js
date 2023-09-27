@@ -6,25 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from "redux";
 import {Provider} from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {store} from "./store";
 
 
-const defaultState = {
-    cash: 5,
-}
-
-const reducer = (state = defaultState, action) => {
-    switch (action.type) {
-        case "ADD_CASH":
-            return {...state, cash: state.cash + action.payload}
-        case "GET_CASH":
-            return {...state, cash: state.cash - action.payload}
-
-
-        default:
-            return state
-    }
-}
-const store = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
